@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://g8l5i27f14kg"]
+
+[ext_resource type="Texture2D" uid="uid://d06yf7j87fvch" path="res://pics/whitebar.png" id="1_ptwiw"]
+[ext_resource type="Script" path="res://map/Area2D.gd" id="2_cegsk"]
+[ext_resource type="PackedScene" uid="uid://dmbk4kq8rgn7a" path="res://small ball/area_2d.tscn" id="3_wy38r"]
+[ext_resource type="Script" path="res://map/Area2D4.gd" id="4_uf30s"]
+[ext_resource type="PackedScene" uid="uid://8a52srdtnj3t" path="res://points sense/node.tscn" id="5_js4yj"]
+[ext_resource type="PackedScene" uid="uid://beqj86ks3cn43" path="res://player/player1/area_2d.tscn" id="6_kcr4t"]
+[ext_resource type="PackedScene" uid="uid://bwgwkgophas6p" path="res://player/player2/area_2d.tscn" id="7_j34ke"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4d7ow"]
+size = Vector2(35, 484.797)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_enwem"]
+size = Vector2(1176, 28)
+
+[node name="Node" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+scale = Vector2(1.00959, 0.707306)
+color = Color(0.0292969, 0.0284958, 0.0284958, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 22)
+scale = Vector2(0.655588, 20.8531)
+texture = ExtResource("1_ptwiw")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_cegsk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(7.5, 224.177)
+scale = Vector2(1, 0.964622)
+shape = SubResource("RectangleShape2D_4d7ow")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(1145, 5)
+script = ExtResource("2_cegsk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(7.5, 224.177)
+scale = Vector2(1, 0.964622)
+shape = SubResource("RectangleShape2D_4d7ow")
+
+[node name="Area2D3" parent="." instance=ExtResource("3_wy38r")]
+position = Vector2(575, 210)
+
+[node name="Area2D4" type="Area2D" parent="."]
+script = ExtResource("4_uf30s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2(578, 4)
+shape = SubResource("RectangleShape2D_enwem")
+
+[node name="Area2D5" type="Area2D" parent="."]
+script = ExtResource("4_uf30s")
+y = -5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
+position = Vector2(590, 455)
+shape = SubResource("RectangleShape2D_enwem")
+
+[node name="Node" parent="." instance=ExtResource("5_js4yj")]
+
+[node name="Area2D6" parent="." instance=ExtResource("6_kcr4t")]
+
+[node name="Area2D7" parent="." instance=ExtResource("7_j34ke")]
+position = Vector2(1075, 286)
